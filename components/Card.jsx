@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import {
   Text,
+  Alert,
   Image,
   View,
   ScrollView,
@@ -9,37 +10,57 @@ import {
   Button,
   StyleSheet,
   Platform,
+  Pressable,
   StatusBar,
+  Modal,
   TouchableOpacity
 } from "react-native";
-TouchableOpacity.defaultProps = { activeOpacity: 0.35 }
+import {
+  Mulish_400Regular,
+  Mulish_600SemiBold,
+  Mulish_700Bold,
+  useFonts,
+} from "@expo-google-fonts/mulish";
+TouchableOpacity.defaultProps = { activeOpacity: 0.6 }
 
 
 
-function Shop() {
+function Card() {
+  const [modalVisible, setModalVisible] = useState(false);
+  let [fontsLoaded] = useFonts({
+    Mulish_400Regular,
+    Mulish_600SemiBold,
+    Mulish_700Bold,
+  });
 
   return (
-    <View style={styles.card}>
+    <SafeAreaView style={{flex: 1}}>
+    <Modal animationType="slide" transparent={false} visible={showModal}
+    >
+      <Text>Hello</Text>
+    </Modal>
+      <Pressable style={styles.card}>
 
-      <Image style={styles.image} source={require("../assets/download.jpeg")} />
+        <Image style={styles.image} source={require("../assets/download.jpeg")} />
 
-      {/* Info Container */}
-      <View style={styles.infoContainer}>
+        {/* Info Container */}
+        <View style={styles.infoContainer}>
 
-        {/* Name And Price */}
-        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 3 }}>
-          <Text style={styles.name}>Bag</Text>
-          <Text style={styles.price}>₦ 400</Text>
-        </View>
+          {/* Name And Price */}
+          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 3 }}>
+            <Text style={styles.name}>Bag</Text>
+            <Text style={styles.price}>₦ 400</Text>
+          </View>
 
-        <Text style={styles.description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere doloremque, maiores ea nobis, laborum nam ullam sapiente, qui aliquid...</Text>
+          <Text style={styles.description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere doloremque, maiores..</Text>
 
-        <TouchableOpacity style={styles.button}>
+          {/* <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Add To Cart</Text>
           <FontAwesome name="cart-plus" color={"white"} size={24} />
-        </TouchableOpacity>
-      </View>
-    </View>
+        </TouchableOpacity> */}
+        </View>
+      </Pressable>
+    </SafeAreaView>
   );
 }
 
@@ -65,11 +86,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   infoContainer: {
-    padding: 16,
+    paddingHorizontal: 16,
   },
   name: {
     fontSize: 22,
     fontWeight: "bold",
+    fontFamily: "Mulish_400Regular"
   },
   price: {
     fontSize: 16,
@@ -101,4 +123,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Shop
+export default Card

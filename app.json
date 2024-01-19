@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "my-expo-app",
+    "name": "OOU my-expo-app",
     "slug": "my-expo-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -25,6 +25,14 @@
     },
     "web": {
       "favicon": "./assets/icon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/Mulish-Regular.ttf", "./assets/Mulish-Medium.ttf"]
+        }
+      ]
+    ]
   }
 }

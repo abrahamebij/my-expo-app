@@ -37,9 +37,12 @@ function Shop() {
     <ScrollView>
       <SafeAreaView style={styles.body}>
         <SearchBar />
+        <View style={{}}>
+
       <Card />
       <Card />
       <Card />
+        </View>
       </SafeAreaView>
     </ScrollView>
   );

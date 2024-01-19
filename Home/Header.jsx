@@ -9,14 +9,14 @@ const Header = () => {
   return (
     <View style={styles.align}>
 
-      <View>
+      <View style={{flexDirection: "row", columnGap: 5}}>
         <Text style={styles.textGray}>Welcome back,</Text>
         <Text style={styles.textBold}>Nicolas</Text>
       </View>
 
       <View style={styles.imgAlign}>
         <TouchableOpacity>
-          <FontAwesome name='search' size={24} />
+          <FontAwesome name='search' size={24} color={"#eee"} />
         </TouchableOpacity>
         <Image
           source={{ uri: "https://img.freepik.com/free-photo/casual-young-african-man-smiling-isolated-white_93675-128895.jpg?size=626&ext=jpg&ga=GA1.1.49247130.1697906011&semt=ais" }}
@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
     borderRadius: 200 / 2,
   },
   textGray: {
-    color: "gray",
+    color: "#eee",
   },
   textBold: {
     fontWeight: "600",
-    fontSize: 18,
+    color: "#eee",
   }
 
 })
