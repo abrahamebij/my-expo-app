@@ -1,13 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome"
+import React, { useCallback } from "react";
+
 import {
   Text,
   Image,
-  View,
   ScrollView,
   SafeAreaView,
-  Button,
-  Pressable,
   StyleSheet,
   Platform,
   StatusBar,
@@ -21,10 +18,11 @@ function Details() {
   return (
     <ScrollView>
       <SafeAreaView style={{ flex: 1 }}>
-        <Image style={styles.image} source={require("../assets/garri.jpeg")} />
-        <Text >Not ready yet</Text>
-        <Text >This is how the modal should look like</Text>
+        <Image style={styles.image} source={require("../assets/shoes.jpeg")} />
+        <Text>Not ready yet</Text>
+        <Text>This is how the modal should look like</Text>
       </SafeAreaView>
+      
     </ScrollView>
   );
 }
@@ -39,7 +37,7 @@ const styles = StyleSheet.create({
   },
 image: {
   width: "100%",
-  
+  height: 400
 }
 });
 

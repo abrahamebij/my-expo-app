@@ -9,9 +9,10 @@ import Card from '../components/Card';
 TouchableOpacity.defaultProps = { activeOpacity: 0.35 }
 
 function Home() {
-  const garri = require("../assets/garri.jpeg")
+  const garri = require("../assets/garri.png")
   const ball = require("../assets/ball.jpeg")
   const shoe = require("../assets/shoes.jpeg")
+  const mattress = require("../assets/mattress.jpeg")
   return (
     <ScrollView>
       <SafeAreaView style={styles.body}>
@@ -23,10 +24,12 @@ function Home() {
           <Balance />
         </View>
         <Searchbar />
-        <View style={{ width: "80%", alignSelf: 'center', paddingVertical: 20 }}>
-          <Card name={"Garri Pack"} img={garri} price={"400"} />
-          <Card name={"Football"} img={ball} price={"1200"} />
-          <Card name={"Nike Shoes"} img={shoe} price={"6500"} />
+        <View style={{ width: "90%", alignSelf: 'center', paddingVertical: 20 }}>
+          <Card name={"Garri Pack"} desc={"Sweet garri combo at affordable rates"} img={garri} price={"250"} />
+
+          <Card name={"Mattress"} desc={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cupiditate ratione nostrum ex molestiae,"} img={mattress} price={"15000"} />
+          <Card desc={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cupiditate ratione nostrum ex molestiae,"} name={"Football"} img={ball} price={"2000"} />
+          <Card desc={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cupiditate ratione nostrum ex molestiae,"} name={"Nike Shoes"} img={shoe} price={"6500"} />
 
         </View>
       </SafeAreaView>
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
   body: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : "",
     flex: 1,
+    backgroundColor: "white"
   },
   align: {
     flexDirection: "row",

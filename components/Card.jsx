@@ -14,7 +14,7 @@ TouchableOpacity.defaultProps = { activeOpacity: 0.6 }
 
 
 
-function Card({ name, price, img }) {
+function Card({ name, price, img, desc }) {
 
   const [fontsLoaded, fontError] = useFonts({
     'Mulish': require('../assets/Mulish-Regular.ttf'),
@@ -41,11 +41,11 @@ function Card({ name, price, img }) {
 
         {/* Info Container */}
         <View style={styles.infoContainer}>
-
           {/* Name And Price */}
-          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 3 }}>
+          <View style={{ rowGap: 10 }}>
             <Text style={styles.name}>{name}</Text>
-            <Text style={styles.price}>₦ {price}</Text>
+            <Text style={styles.desc}>{desc.length > 60 ? desc.slice(0, 50) + "..." : desc}</Text>
+            <Text style={styles.price}>₦{price}</Text>
           </View>
 
           {/* <TouchableOpacity style={styles.button}>
@@ -54,6 +54,10 @@ function Card({ name, price, img }) {
         </TouchableOpacity> */}
         </View>
       </Pressable>
+
+      <View style={{ padding: 5, marginVertical: 10, alignSelf: "center", borderRadius: 10, width: "20%", backgroundColor: "#eee" }}>
+
+      </View>
     </SafeAreaView>
   );
 }
@@ -61,46 +65,38 @@ function Card({ name, price, img }) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: "white",
-    borderWidth: 1,
-    borderColor: "#ababab",
-    borderRadius: 16,
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    shadowColor: "black",
-    // paddingTop: 20,
-
-    shadowOffset: {
-      height: 0,
-      width: 0,
-    },
-    elevation: 1,
-    marginVertical: 10,
+    marginVertical: 20,
+    flexDirection: "row",
   },
   image: {
-    height: 250,
-    width: "100%",
+    height: 150,
+    width: "40%",
     overflow: "hidden",
-    borderTopRightRadius: 16,
-    borderTopLeftRadius: 16,
+    borderRadius: 16,
     alignSelf: "center",
   },
   infoContainer: {
-    paddingHorizontal: 16,
-    backgroundColor: "#eee",
+    paddingLeft: 16,
+    paddingRight: 0,
     paddingVertical: 7,
-    // marginTop: 16,
+    width: "60%"
   },
   name: {
     fontSize: 20,
-    color: "#555",
+    color: "#5E6368",
     fontWeight: "600",
     fontFamily: "MulishBold"
   },
+  desc: {
+    fontSize: 15,
+    color: "gray"
+  },
   price: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#343434",
-    fontFamily: "Mulish"
+    fontSize: 17,
+    fontWeight: "700",
+    color: "#0884C1",
+    fontFamily: "MulishBold",
+    paddingTop: 10,
   },
   description: {
     fontSize: 14,
