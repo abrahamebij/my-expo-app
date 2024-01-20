@@ -7,6 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
   Button,
+  Pressable,
   StyleSheet,
   Platform,
   StatusBar,
@@ -17,11 +18,12 @@ TouchableOpacity.defaultProps = { activeOpacity: 0.35 }
 
 
 function Details() {
-  const [product, setProduct] = useState({});
   return (
     <ScrollView>
-      <SafeAreaView style={styles.body}>
-        
+      <SafeAreaView style={{ flex: 1 }}>
+        <Image style={styles.image} source={require("../assets/garri.jpeg")} />
+        <Text >Not ready yet</Text>
+        <Text >This is how the modal should look like</Text>
       </SafeAreaView>
     </ScrollView>
   );
@@ -35,60 +37,10 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
   },
-  card: {
-    backgroundColor: "white",
-    borderRadius: 16,
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    shadowColor: "black",
-    paddingTop: 20,
-    shadowOffset: {
-      height: 0,
-      width: 0,
-    },
-    elevation: 1,
-    marginVertical: 20,
-  },
-  image: {
-    height: 150,
-    width: "50%",
-    overflow: "hidden",
-    alignSelf: "center",
-  },
-  infoContainer: {
-    padding: 16,
-  },
-  name: {
-    fontSize: 22,
-    fontWeight: "bold",
-  },
-  price: {
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  description: {
-    fontSize: 14,
-    fontWeight: "400",
-    color: "#787878",
-    marginBottom: 16,
-  },
-  button: {
-    backgroundColor: "#0884C1",
-    width: "60%",
-    paddingVertical: 10,
-    borderRadius: 10,
-    alignSelf: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-    columnGap: 10,
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 18,
-    textAlign: "center",
-
-  }
+image: {
+  width: "100%",
+  
+}
 });
 
 export default Details

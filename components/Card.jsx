@@ -1,58 +1,52 @@
-import React, { useEffect, useState, useContext } from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome"
+import React, { useCallback } from "react";
 import {
   Text,
-  Alert,
   Image,
   View,
-  ScrollView,
   SafeAreaView,
-  Button,
   StyleSheet,
-  Platform,
   Pressable,
-  StatusBar,
-  Modal,
   TouchableOpacity
 } from "react-native";
-import {
-  Mulish_400Regular,
-  Mulish_600SemiBold,
-  Mulish_700Bold,
-  useFonts,
-} from "@expo-google-fonts/mulish";
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 TouchableOpacity.defaultProps = { activeOpacity: 0.6 }
 
 
 
-function Card() {
-  const [modalVisible, setModalVisible] = useState(false);
-  let [fontsLoaded] = useFonts({
-    Mulish_400Regular,
-    Mulish_600SemiBold,
-    Mulish_700Bold,
+function Card({ name, price, img }) {
+
+  const [fontsLoaded, fontError] = useFonts({
+    'Mulish': require('../assets/Mulish-Regular.ttf'),
+    'MulishSemibold': require('../assets/Mulish-Medium.ttf'),
+    'MulishBold': require('../assets/Mulish-Bold.ttf'),
   });
 
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   return (
-    <SafeAreaView style={{flex: 1}}>
-    <Modal animationType="slide" transparent={false} visible={showModal}
-    >
-      <Text>Hello</Text>
-    </Modal>
+    <SafeAreaView style={{ flex: 1 }}>
+
       <Pressable style={styles.card}>
 
-        <Image style={styles.image} source={require("../assets/download.jpeg")} />
+        <Image style={styles.image} source={img} />
 
         {/* Info Container */}
         <View style={styles.infoContainer}>
 
           {/* Name And Price */}
           <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 3 }}>
-            <Text style={styles.name}>Bag</Text>
-            <Text style={styles.price}>₦ 400</Text>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.price}>₦ {price}</Text>
           </View>
-
-          <Text style={styles.description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere doloremque, maiores..</Text>
 
           {/* <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Add To Cart</Text>
@@ -67,11 +61,14 @@ function Card() {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: "white",
+    borderWidth: 1,
+    borderColor: "#ababab",
     borderRadius: 16,
     shadowOpacity: 0.2,
     shadowRadius: 4,
     shadowColor: "black",
-    paddingTop: 20,
+    // paddingTop: 20,
+
     shadowOffset: {
       height: 0,
       width: 0,
@@ -80,23 +77,30 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   image: {
-    height: 150,
-    width: "50%",
+    height: 250,
+    width: "100%",
     overflow: "hidden",
+    borderTopRightRadius: 16,
+    borderTopLeftRadius: 16,
     alignSelf: "center",
   },
   infoContainer: {
     paddingHorizontal: 16,
+    backgroundColor: "#eee",
+    paddingVertical: 7,
+    // marginTop: 16,
   },
   name: {
-    fontSize: 22,
-    fontWeight: "bold",
-    fontFamily: "Mulish_400Regular"
+    fontSize: 20,
+    color: "#555",
+    fontWeight: "600",
+    fontFamily: "MulishBold"
   },
   price: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#343434"
+    color: "#343434",
+    fontFamily: "Mulish"
   },
   description: {
     fontSize: 14,

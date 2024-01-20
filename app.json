@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "OOU my-expo-app",
-    "slug": "my-expo-app",
+    "name": "OOU Trade Hub",
+    "slug": "oou-trade-hub",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -30,7 +28,10 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/Mulish-Regular.ttf", "./assets/Mulish-Medium.ttf"]
+          "fonts": [
+            "./assets//Mulish-Medium.ttf",
+            "./assets/Mulish-Regular.ttf"
+          ]
         }
       ]
     ]

@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
-import { Text, View, StyleSheet, Platform, StatusBar, SafeAreaView, TouchableOpacity, Image, ScrollView, Pressable } from 'react-native';
+import React from 'react'
+import { Text, View, StyleSheet, Platform, StatusBar, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
 import Header from './Header';
-import FontAwesome from "@expo/vector-icons/FontAwesome"
 import Balance from './Balance';
-import Card from "./Card"
+import Searchbar from './Searchbar';
+import Card from '../components/Card';
 
 
 TouchableOpacity.defaultProps = { activeOpacity: 0.35 }
 
 function Home() {
-
+  const garri = require("../assets/garri.jpeg")
+  const ball = require("../assets/ball.jpeg")
+  const shoe = require("../assets/shoes.jpeg")
   return (
     <ScrollView>
       <SafeAreaView style={styles.body}>
@@ -20,9 +22,13 @@ function Home() {
           <Header />
           <Balance />
         </View>
-{/*         
-        <Card /> */}
-        
+        <Searchbar />
+        <View style={{ width: "80%", alignSelf: 'center', paddingVertical: 20 }}>
+          <Card name={"Garri Pack"} img={garri} price={"400"} />
+          <Card name={"Football"} img={ball} price={"1200"} />
+          <Card name={"Nike Shoes"} img={shoe} price={"6500"} />
+
+        </View>
       </SafeAreaView>
     </ScrollView>
   );
