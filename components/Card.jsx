@@ -48,10 +48,7 @@ function Card({ name, price, img, desc }) {
             <Text style={styles.price}>₦{price}</Text>
           </View>
 
-          {/* <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Add To Cart</Text>
-          <FontAwesome name="cart-plus" color={"white"} size={24} />
-        </TouchableOpacity> */}
+          
         </View>
       </Pressable>
 
@@ -104,23 +101,6 @@ const styles = StyleSheet.create({
     color: "#787878",
     marginBottom: 16,
   },
-  button: {
-    backgroundColor: "#0884C1",
-    width: "60%",
-    paddingVertical: 10,
-    borderRadius: 10,
-    alignSelf: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-    columnGap: 10,
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 18,
-    textAlign: "center",
-
-  }
 });
 
 export default Card
